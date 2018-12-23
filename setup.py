@@ -1,46 +1,20 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 import os
-import sys
+from setuptools import find_packages, setup
 
-import dadata
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+    README = readme.read()
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
-
-version  = '0.0.1-dev'
-
-if sys.argv[-1] == 'publish':
-    os.system('python setup.py sdist upload')
-    os.system('python setup.py bdist_wheel upload')
-    sys.exit()
-
-if sys.argv[-1] == 'tag':
-    print("Tagging the version on github:")
-    os.system("git tag -a %s -m 'version %s'" % (version, version))
-    os.system("git push --tags")
-    sys.exit()
-
-readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-dadata',
-    version=version,
-    description="""Some django batteries for dadata.ru services""",
-    long_description=readme + '\n\n' + history,
+    version='0.0.1-dev',
+    description='Some django batteries for dadata.ru services',
+    long_description=README,
     author='Oleg Rybkin aka Fish',
     author_email='okfish@yandex.ru',
     url='https://github.com/okfish/django-dadata',
-    packages=[
-        'dadata',
-    ],
-    include_package_data=True,
-    install_requires=[
-    ],
+    packages=find_packages(),
     license="BSD",
     zip_safe=False,
     keywords='django-dadata',
@@ -50,10 +24,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
 )
