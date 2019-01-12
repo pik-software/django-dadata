@@ -1,1 +1,6 @@
 __version__ = '0.0.1-dev'
+PARTY = 'PARTY'
+BANK = 'BANK'
+NAME = 'NAME'
+ADDRESS = 'ADDRESS'
+EMAIL = 'EMAIL'
