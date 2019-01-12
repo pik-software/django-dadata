@@ -16,13 +16,13 @@ Then use it in a project::
 
     # forms.py
     
-    import dadata.widgets import DadataOrgWidget
-    ...
+    from dadata.widgets import DadataWidget
+    from dadata import PARTY
     
     # form class definition
-    name = CharField(widget=DadataOrgWidget('data-linked-fields': {'inn' : '#id_vatin',
-                                                                   'kpp' : '#id_reason_code'},
-                                                            }))
+    name = CharField(widget=DadataWidget(
+        {'suggestions_type': PARTY, 'linked-fields': {
+            'inn' : 'data.inn', 'kpp' : 'data.kpp'}}))
                                                             
     # form.html
     
