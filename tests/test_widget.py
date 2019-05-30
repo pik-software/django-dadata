@@ -1,5 +1,5 @@
-from dadata.widgets import DadataWidget
-from dadata import ORGANIZATION
+from django_dadata.widgets import DadataWidget
+from django_dadata import ORGANIZATION
 from unittest import mock
 from django.test.html import parse_html
 
