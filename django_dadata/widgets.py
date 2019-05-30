@@ -6,12 +6,12 @@ from django.conf import settings
 
 class DadataWidget(forms.TextInput):
 
-    def __init__(self, attrs=None):
+    def __init__(self, suggestion_type, linked_fields, count=5, attrs=None):
         super().__init__(attrs)
-        self.type = attrs['suggestions_type']
-        self._linked_fields = attrs['linked_fields']
-        self.count = attrs.get('count', 5)
-        self.token = settings.DADATA_API_SUGGEST_TOKEN
+        self.type = suggestion_type
+        self._linked_fields = linked_fields
+        self.count = count
+        self.token = settings.DADATA_API_SUGGESTION_TOKEN
         self.field_id = None
 
     @property
