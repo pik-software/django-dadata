@@ -21,6 +21,9 @@ class DadataWidget(forms.TextInput):
             script += f'$("#id_{field}").val(suggestion.{path});\n'
         return script
 
+    def on_select_js_hook(self):
+        return ''
+
     def create_script(self, field_id):
         return f'''
             <script type="text/javascript">
@@ -30,6 +33,7 @@ class DadataWidget(forms.TextInput):
                     count: "{self.count}",
                     onSelect: function(suggestion) {{
                         {self.linked_fields}
+                        {self.on_select_js_hook()}
                     }}
                 }});
             </script>'''
