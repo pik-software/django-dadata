@@ -1,3 +1,4 @@
-django>=1.8.0
-wheel==0.24.0
-# Additional requirements go here
+django>=2.1.0
+
+# testing
+tox==3.6.0
